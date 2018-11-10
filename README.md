@@ -52,12 +52,48 @@ To do this, we must set the attribute "Flag" onto the enum type:
 [EnumName]
 public enum CarProducer {
 	[EnumName("VW")]
-	Volkswagen, 
+	Volkswagen = 1, 
 	[EnumName("BMW")]
-	BayerischeMotorenWerke, 
+	BayerischeMotorenWerke = 2, 
 	[EnumName("T")]
-	Toyota
+	Toyota = 4
 }
 ```
 
 Now you can parse the string "VW;BMW" into a enum value.
+
+## Supported Datatypes
+
+To support flags with more than 32 values, you can inherit from "long". The lib respects your choice:
+ 
+```csharp
+public enum CarProducer : long {
+...
+	Volkswagen = 2^64 // this will work, too
+...
+}
+```
+## Usage
+
+Example how to apply the "or" operator:
+
+```csharp
+object enum1 = CarProducer.Volkswagen;
+object enum2 = CarProducer.Toyota;
+
+var value = (CarProducer)EnumParser.EnumOr(enum1, enum2);
+
+Console.WriteLine(value.HasFlag(CarProducer.Volkswagen));
+```
+
+How to parse:
+
+```csharp
+EnumParser.Parse(typeof(CarProducer), "VW;BMW");
+```
+
+## Nuget
+
+The lib is available on nuget. 
+
+## [Changlog](CHANGELOG.md)
