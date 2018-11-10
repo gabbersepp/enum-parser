@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>    
+    <id>Biehler.EnumParser</id>
+    <version>1.0.0</version>
+    <title>Enum Parser</title>
+    <authors>gabbersepp</authors>
+    <owners>gabbersepp</owners>
+    <licenseUrl>https://github.com/gabbersepp/enum-parser/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/gabbersepp/enum-parser</projectUrl>
+    <!--<iconUrl></iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple to use lib to parse a string to a enum value. Given a set of strings you can parse them to a flagable enum. Given a string that is different to the enum value you can parse it too by using an attribute.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>2018 Josef Biehler</copyright>
+    <tags>enum parse expression flag or</tags>
+    <summary></summary>
+  </metadata>
+  <files>
+    <file src="" target="" />
+  </files>
+</package>
