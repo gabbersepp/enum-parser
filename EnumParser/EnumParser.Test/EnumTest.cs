@@ -29,6 +29,14 @@ namespace EnumParser.Test
 
             enumValue.Should().HaveFlag(Notes.Assigned).And.HaveFlag(Notes.Exercised);
         }
+
+        [Test]
+        public void TestLeadingDelimiter()
+        {
+            var enumValue = EnumParser.Parse(typeof(OpenClose), ";O;C");
+
+            enumValue.Should().HaveFlag(OpenClose.C).And.HaveFlag(OpenClose.O);
+        }
     }
 
     [EnumName]
