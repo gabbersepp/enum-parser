@@ -29,7 +29,7 @@ namespace EnumParser
 
         public static object Parse(Type type, string name)
         {
-            var splits = name.Split(';');
+            var splits = validateName(name).Split(';');
 
             var retVal = splits.Select(x =>
             {
@@ -44,6 +44,15 @@ namespace EnumParser
             }).Aggregate((x, y) => EnumOr(x, y));
 
             return retVal;
+        }
+
+        private static string validateName(string name)
+        {
+            if (name.IndexOf(";") == 0)
+            {
+                return name.Substring(1);
+            };
+            return name;
         }
 
         public static object EnumOr(object enum1, object enum2)
